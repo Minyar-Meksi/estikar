@@ -58,6 +58,11 @@
                         Feedbacks
                         </x-dropdown-link>
                         @endcan
+                        @can('view-any', App\Models\Version::class)
+                        <x-dropdown-link href="{{ route('versions.index') }}">
+                        Versions
+                        </x-dropdown-link>
+                        @endcan
                 </x-nav-dropdown>
 
             </div>
@@ -224,6 +229,11 @@
                 @can('view-any', App\Models\Feedback::class)
                 <x-jet-responsive-nav-link href="{{ route('feedbacks.index') }}">
                 Feedbacks
+                </x-jet-responsive-nav-link>
+                @endcan
+                @can('view-any', App\Models\Version::class)
+                <x-jet-responsive-nav-link href="{{ route('versions.index') }}">
+                Versions
                 </x-jet-responsive-nav-link>
                 @endcan
 

@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\MarqueModelesController;
 use App\Http\Controllers\Api\ModeleVersionsController;
 use App\Http\Controllers\Api\VersionOptionsController;
 use App\Http\Controllers\Api\OptionVersionsController;
+use App\Http\Controllers\Api\option_versionController;
 use App\Http\Controllers\Api\CategorieMarquesController;
 use App\Http\Controllers\Api\OptionSousOptionsController;
 
@@ -110,4 +111,20 @@ Route::name('api.')
         Route::apiResource('clients', ClientController::class);
 
         Route::apiResource('feedbacks', FeedbackController::class);
+
+        Route::apiResource('versions', VersionController::class);
+
+        // Version Options
+        Route::get('/versions/{version}/options', [
+            VersionOptionsController::class,
+            'index',
+        ])->name('versions.options.index');
+        Route::post('/versions/{version}/options/{option}', [
+            VersionOptionsController::class,
+            'store',
+        ])->name('versions.options.store');
+        Route::delete('/versions/{version}/options/{option}', [
+            VersionOptionsController::class,
+            'destroy',
+        ])->name('versions.options.destroy');
     });

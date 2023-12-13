@@ -218,4 +218,31 @@ return [
             'rating' => 'Rating',
         ],
     ],
+
+    'versions' => [
+        'name' => 'Versions',
+        'index_title' => 'Versions List',
+        'new_title' => 'New Version',
+        'create_title' => 'Create Version',
+        'edit_title' => 'Edit Version',
+        'show_title' => 'Show Version',
+        'inputs' => [
+            'name' => 'Name',
+            'modele_id' => 'Modele',
+            'picture' => 'Picture',
+            'year' => 'Year',
+        ],
+    ],
+
+    'option_versions' => [
+        'name' => 'Option Versions',
+        'index_title' => ' List',
+        'new_title' => 'New Option version',
+        'create_title' => 'Create option_version',
+        'edit_title' => 'Edit option_version',
+        'show_title' => 'Show option_version',
+        'inputs' => [
+            'version_id' => 'Version',
+        ],
+    ],
 ];

@@ -8,6 +8,7 @@ use Filament\Resources\{Form, Table};
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\BelongsToSelect;
 use Filament\Tables\Filters\MultiSelectFilter;
@@ -34,8 +35,9 @@ class VersionsRelationManager extends RelationManager
                         'lg' => 12,
                     ]),
 
-                TextInput::make('picture')
-                    ->rules(['max:255', 'string'])
+                FileUpload::make('picture')
+                    ->rules(['image', 'max:1024'])
+                    ->image()
                     ->placeholder('Picture')
                     ->columnSpan([
                         'default' => 12,
@@ -62,7 +64,7 @@ class VersionsRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\TextColumn::make('name')->limit(50),
                 Tables\Columns\TextColumn::make('modele.name')->limit(50),
-                Tables\Columns\TextColumn::make('picture')->limit(50),
+                Tables\Columns\ImageColumn::make('picture')->rounded(),
                 Tables\Columns\TextColumn::make('year'),
             ])
             ->filters([

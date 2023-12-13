@@ -7,6 +7,7 @@ use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\ModeleController;
 use App\Http\Controllers\OptionController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VersionController;
 use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\SousOptionController;
@@ -43,4 +44,5 @@ Route::prefix('/')
         Route::resource('users', UserController::class);
         Route::resource('clients', ClientController::class);
         Route::resource('feedbacks', FeedbackController::class);
+        Route::resource('versions', VersionController::class);
     });

@@ -9,6 +9,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\SelectFilter;
 use App\Filament\Filters\DateRangeFilter;
 use App\Filament\Resources\VersionResource\Pages;
@@ -50,9 +51,10 @@ class VersionResource extends Resource
                             'lg' => 12,
                         ]),
 
-                    TextInput::make('picture')
-                        ->rules(['max:255', 'string'])
+                    FileUpload::make('picture')
+                        ->rules(['image', 'max:1024'])
                         ->nullable()
+                        ->image()
                         ->placeholder('Picture')
                         ->columnSpan([
                             'default' => 12,
@@ -87,10 +89,9 @@ class VersionResource extends Resource
                 Tables\Columns\TextColumn::make('modele.name')
                     ->toggleable()
                     ->limit(50),
-                Tables\Columns\TextColumn::make('picture')
+                Tables\Columns\ImageColumn::make('picture')
                     ->toggleable()
-                    ->searchable(true, null, true)
-                    ->limit(50),
+                    ->circular(),
                 Tables\Columns\TextColumn::make('year')
                     ->toggleable()
                     ->searchable(true, null, true),
