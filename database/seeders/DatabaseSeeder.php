@@ -15,18 +15,19 @@ class DatabaseSeeder extends Seeder
         $user = \App\Models\User::factory()
             ->count(1)
             ->create([
+                "name"=> "Minyar Meksi",
                 'email' => 'admin@admin.com',
                 'password' => \Hash::make('admin'),
             ]);
 
-        $this->call(CategorieSeeder::class);
-        $this->call(ClientSeeder::class);
-        $this->call(FeedbackSeeder::class);
-        $this->call(MarqueSeeder::class);
-        $this->call(ModeleSeeder::class);
-        $this->call(OptionSeeder::class);
-        $this->call(SousOptionSeeder::class);
-        $this->call(UserSeeder::class);
-        $this->call(VersionSeeder::class);
+        // $this->call(CategorieSeeder::class);
+        // $this->call(ClientSeeder::class);
+        // $this->call(FeedbackSeeder::class);
+        // $this->call(MarqueSeeder::class);
+        // $this->call(ModeleSeeder::class);
+        // $this->call(OptionSeeder::class);
+        // $this->call(SousOptionSeeder::class);
+        // $this->call(UserSeeder::class);
+        // $this->call(VersionSeeder::class);
     }
 }
